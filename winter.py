@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
-token = "NTg2NTUzOTU2ODQzMzg4OTQy.XntPYw.npcV1qBJWssT9meMCDZo4cHXJlw"
+token = "" # token goes here
 prefix = '$'
 client = commands.Bot(command_prefix = prefix, owner_id = 450223497021489163)
 client.remove_command('help')
