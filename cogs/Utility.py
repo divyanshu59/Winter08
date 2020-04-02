@@ -1,5 +1,8 @@
 import discord
 from discord.ext import commands
+import winter
+
+client = commands.Bot
 
 class Utility(commands.Cog):
     def __init__(self, client):
@@ -9,16 +12,17 @@ class Utility(commands.Cog):
     async def version(self, ctx):
         embed = discord.Embed(
             title = '**:wolf: Winter v1.0.11 :**',
-            description = '''
+            description = f'''
     ``Changelog: ``
-    # **Flip Improved visuals**
-    # **Added a mute command**
-    # **Performance Fixes**
-    # **More Coming Soon**
+    :pushpin: **Memes command is here :heart_eyes:**
+    :pushpin: **All New Music :musical_note:** [WIP] [Coming Soon]
+    :pushpin: **Added a mute command :mute:**
+    :pushpin: **Performance Fixes :fast_forward:**
+    :pushpin: **More Coming Soon :slight_smile:**
 
     ``Bugs: ``
-    # **Moderation Commands Usage** :white_check_mark:
-    # **Error Handling Issues** :white_check_mark:
+    :pushpin: **Moderation Commands Usage** :white_check_mark:
+    :pushpin: **Error Handling Issues** :white_check_mark:
     ''',
             colour = discord.Colour(0xff0000)
             )
