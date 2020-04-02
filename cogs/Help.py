@@ -20,6 +20,7 @@ class Help(commands.Cog):
         dm_msg.add_field(name = 'Command -- `` "question x <your question>"``: ', value = '>``Responses to your question randomly.``')
         dm_msg.add_field(name = 'Command -- `` "flip"``: ', value = '>``Flips a coin a displays either Head or Tails.``', inline = 'false')
         dm_msg.add_field(name = 'Command -- `` "me(Your Info) or whois <user> (Info of Tagged User)"``: ', value = '>``Displays some info about the target user.``',inline = 'false')
+        dm_msg.add_field(name = 'Command -- ``"meme"``: ', value = '>``Get Some Memes from Reddit``', inline = 'false')
         dm_msg.set_footer(text = f'{ctx.author}', icon_url = f'{ctx.author.avatar_url}')
 
         dm_msg2 = discord.Embed(
@@ -43,10 +44,20 @@ class Help(commands.Cog):
         dm_msg3.add_field(name = 'Command -- ``"vote"``:', value = '``>UpVote for Winter :).``', inline = 'false')
         dm_msg3.set_footer(text = f'{ctx.author}', icon_url = f'{ctx.author.avatar_url}')
 
+        dm_msg4 = discord.Embed(
+            title = '**Music Commands: ** \n',
+            colour = discord.Colour(0xff000)
+            )
+        dm_msg4.add_field(name= 'Command -- ``"play"``:', value = '``>Joins the Voice Channel you are in.``', inline = 'false')
+        dm_msg4.add_field(name = 'Command -- ``"leave"``:', value = '``>Leave.``', inline = 'false')
+        dm_msg4.add_field(name = 'Command -- ``"play + <song name>"``:', value = '``>Playes the Song that bots feteched from YT``', inline = 'false')
+        dm_msg4.set_footer(text = f'{ctx.author}', icon_url = f'{ctx.author.avatar_url}')
+
         await ctx.send(embed=guild_msg)
         await ctx.author.send(embed=dm_msg)
         await ctx.author.send(embed=dm_msg2)
         await ctx.author.send(embed=dm_msg3)
+        await ctx.author.send(embed=dm_msg4)
     
     @commands.command()
     async def support(self, ctx):
