@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 import winter
+import random
+import asyncio
 
 client = commands.Bot
 
@@ -15,7 +17,7 @@ class Utility(commands.Cog):
             description = f'''
     ``Changelog: ``
     :pushpin: **Memes command is here :heart_eyes:**
-    :pushpin: **All New Music :musical_note:** [WIP] [Coming Soon]
+    :pushpin: ** Random Dog and Cat Images are here :dog: :cat:** 
     :pushpin: **Added a mute command :mute:**
     :pushpin: **Performance Fixes :fast_forward:**
     :pushpin: **More Coming Soon :slight_smile:**
@@ -29,6 +31,23 @@ class Utility(commands.Cog):
         embed.set_footer(text = f'{ctx.author}', icon_url = f'{ctx.author.avatar_url}')
 
         await ctx.send(embed=embed)
+
+    @commands.command()
+    async def random(self, ctx, first: int, second: int):
+        n = random.randrange(first,second)
+        run = discord.Embed(
+            title = f'Generating a random number between `{first}` and `{second}`',
+            color = discord.Color.green()
+        )
+        result = discord.Embed(
+            title = f'Result: `{n}`',
+            color = discord.Color.green()
+        )
+        await ctx.send(embed=run,delete_after=3)
+        await asyncio.sleep(2)
+        await ctx.send(embed=result)
+           
+       
 
     
 def setup(client):
