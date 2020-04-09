@@ -12,7 +12,7 @@ class Help(commands.Cog):
             colour=discord.Colour(0xff000)
             )
         dm_msg = discord.Embed(
-            title = '**Basic Commands: \n**',
+            title = '**Basic and U Commands: \n**',
             colour = discord.Colour(0xff000))
         dm_msg.add_field(name = 'Command -- ``"hi"``: ', value = '>``You will be greeted by the Bot.``', inline = 'false')
         dm_msg.add_field(name = 'Command -- ``"ping"``: ', value = '>``Returns the latency/ping of the Bot.``', inline = 'false')
@@ -20,7 +20,10 @@ class Help(commands.Cog):
         dm_msg.add_field(name = 'Command -- `` "question x <your question>"``: ', value = '>``Responses to your question randomly.``')
         dm_msg.add_field(name = 'Command -- `` "flip"``: ', value = '>``Flips a coin a displays either Head or Tails.``', inline = 'false')
         dm_msg.add_field(name = 'Command -- `` "me(Your Info) or whois <user> (Info of Tagged User)"``: ', value = '>``Displays some info about the target user.``',inline = 'false')
+        dm_msg.add_field(name = 'Command -- ``"random x <first num> + <second num>"``: ', value = '>``Itz a random number generator ``', inline = 'false')
         dm_msg.add_field(name = 'Command -- ``"meme"``: ', value = '>``Get Some Memes from Reddit``', inline = 'false')
+        dm_msg.add_field(name = 'Command -- ``"cat"``: ', value = '>``Get Some Cat images from Reddit``', inline = 'false')
+        dm_msg.add_field(name = 'Command -- ``"dog"``: ', value = '>``Get Some Doggo images from Reddit``', inline = 'false')
         dm_msg.set_footer(text = f'{ctx.author}', icon_url = f'{ctx.author.avatar_url}')
 
         dm_msg2 = discord.Embed(
