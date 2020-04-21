@@ -49,7 +49,7 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def meme(self, ctx, category = None):
-        if category == "minecraft":
+        if category is not None:
             load = discord.Embed(
             title = 'Loading...',
             color = discord.Color.green()
@@ -62,8 +62,8 @@ class Fun(commands.Cog):
                             password = 'Sonu ghost@123',
                             user_agent = 'Winter08 v.1.0'
             )
-
-            memes_submissions = reddit.subreddit('MinecraftMemes').hot()
+            temp = "{}Memes".format(category)
+            memes_submissions = reddit.subreddit(temp).hot()
             post_to_pick = random.randint(1, 100)
             for x in range(0, post_to_pick):
                 submission = next(x for x in memes_submissions if not x.stickied)
