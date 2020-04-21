@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import winter
 import random
+import time
 import asyncio
 
 client = commands.Bot
@@ -17,7 +18,8 @@ class Utility(commands.Cog):
             description = f'''
     ``Changelog: ``
     :pushpin: **Memes command is here :heart_eyes:**
-    :pushpin: ** Random Dog and Cat Images are here :dog: :cat:** 
+    :pushpin: ** Random Dog and Cat Images are here :dog: :cat:**
+    :pushpin: ** Anime s** 
     :pushpin: **Added a mute command :mute:**
     :pushpin: **Performance Fixes :fast_forward:**
     :pushpin: **More Coming Soon :slight_smile:**
@@ -46,8 +48,8 @@ class Utility(commands.Cog):
         await ctx.send(embed=run,delete_after=3)
         await asyncio.sleep(2)
         await ctx.send(embed=result)
+
            
-       
 
     
 def setup(client):

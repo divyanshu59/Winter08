@@ -48,7 +48,98 @@ class Fun(commands.Cog):
         await ctx.send(embed=result)
 
     @commands.command()
-    async def meme(self, ctx):
+    async def meme(self, ctx, category = None):
+        if category == "minecraft":
+            load = discord.Embed(
+            title = 'Loading...',
+            color = discord.Color.green()
+            )
+            await ctx.send(embed=load, delete_after=1)
+
+            reddit =  praw.Reddit(client_id = 'cKtdy4mx7fPopQ',
+                            client_secret = 'PuQBb-kfu6EPxayDZQYqydYq6v0',
+                            username = 'Connerwolf08',
+                            password = 'Sonu ghost@123',
+                            user_agent = 'Winter08 v.1.0'
+            )
+
+            memes_submissions = reddit.subreddit('MinecraftMemes').hot()
+            post_to_pick = random.randint(1, 100)
+            for x in range(0, post_to_pick):
+                submission = next(x for x in memes_submissions if not x.stickied)
+            mine = discord.Embed(
+                title = f'``Title :`` {submission.title}',
+                color = discord.Color.green()
+            )
+            mine.set_image(url=f'{submission.url}')
+            mine.add_field(name=':thumbsup: **Upvotes** :',value= f'{submission.ups}',inline=True)
+            mine.add_field(name=':envelope: **Comments** :',value= f'{len(submission.comments)}',inline=True)
+            await ctx.send(embed=mine)
+
+        elif category == "anime":
+            load = discord.Embed(
+                title = 'Loading...',
+                color = discord.Color.green()
+            )
+            await ctx.send(embed=load, delete_after=1)
+
+            reddit =  praw.Reddit(client_id = 'cKtdy4mx7fPopQ',
+                            client_secret = 'PuQBb-kfu6EPxayDZQYqydYq6v0',
+                            username = 'Connerwolf08',
+                            password = 'Sonu ghost@123',
+                            user_agent = 'Winter08 v.1.0'
+            )
+
+            memes_submissions = reddit.subreddit('Animemes').hot()
+            post_to_pick = random.randint(1, 100)
+            for x in range(0, post_to_pick):
+                submission = next(x for x in memes_submissions if not x.stickied)
+            meme = discord.Embed(
+                title = f'``Title :`` {submission.title}',
+                color = discord.Color.green()
+            )
+            meme.set_image(url=f'{submission.url}')
+            meme.add_field(name=':thumbsup: **Upvotes** :',value= f'{submission.ups}',inline=True)
+            meme.add_field(name=':envelope: **Comments** :',value= f'{len(submission.comments)}',inline=True)
+            await ctx.send(embed=meme)
+
+        elif category == None:
+            load = discord.Embed(
+                title = 'Loading...',
+                color = discord.Color.green()
+            )
+            await ctx.send(embed=load, delete_after=1)
+
+            reddit =  praw.Reddit(client_id = 'cKtdy4mx7fPopQ',
+                            client_secret = 'PuQBb-kfu6EPxayDZQYqydYq6v0',
+                            username = 'Connerwolf08',
+                            password = 'Sonu ghost@123',
+                            user_agent = 'Winter08 v.1.0'
+            )
+
+            memes_submissions = reddit.subreddit('memes').hot()
+            post_to_pick = random.randint(1, 100)
+            for x in range(0, post_to_pick):
+                submission = next(x for x in memes_submissions if not x.stickied)
+            meme = discord.Embed(
+                title = f'``Title :`` {submission.title}',
+                color = discord.Color.green()
+            )
+            meme.set_image(url=f'{submission.url}')
+            meme.add_field(name=':thumbsup: **Upvotes** :',value= f'{submission.ups}',inline=True)
+            meme.add_field(name=':envelope: **Comments** :',value= f'{len(submission.comments)}',inline=True)
+            await ctx.send(embed=meme)
+
+        else:
+            embed = discord.Embed(
+                title = '``Error:`` Category not found !!',
+                color = discord.Color.green*()
+            )
+            await ctx.send(embed=embed,delete_after=2)
+
+
+    @commands.command()
+    async def anime(self, ctx):
         load = discord.Embed(
             title = 'Loading...',
             color = discord.Color.green()
@@ -62,18 +153,72 @@ class Fun(commands.Cog):
                         user_agent = 'Winter08 v.1.0'
         )
 
-        memes_submissions = reddit.subreddit('memes').hot()
+        anime_submissions = reddit.subreddit('animegif').hot()
         post_to_pick = random.randint(1, 100)
         for x in range(0, post_to_pick):
-            submission = next(x for x in memes_submissions if not x.stickied)
-        meme = discord.Embed(
+            submission = next(x for x in anime_submissions if not x.stickied)
+        anime = discord.Embed(
+            title = f'``Title :`` {submission.title}',
+            color = discord.Color.green()
+        )
+        anime.set_image(url=f'{submission.url}')
+        anime.add_field(name=':thumbsup: **Upvotes** :',value= f'{submission.ups}',inline=True)
+        anime.add_field(name=':envelope: **Comments** :',value= f'{len(submission.comments)}',inline=True)
+        await ctx.send(embed=anime)
+
+    @commands.command()
+    @commands.is_nsfw()
+    async def hentai(self, ctx):
+        load = discord.Embed(
+            title = 'Loading...',
+            color = discord.Color.green()
+        )
+        await ctx.send(embed=load, delete_after=1)
+
+        reddit =  praw.Reddit(client_id = 'cKtdy4mx7fPopQ',
+                        client_secret = 'PuQBb-kfu6EPxayDZQYqydYq6v0',
+                        username = 'Connerwolf08',
+                        password = 'Sonu ghost@123',
+                        user_agent = 'Winter08 v.1.0'
+        )
+
+        anime_submissions = reddit.subreddit('HENTAI_GIF').hot()
+        post_to_pick = random.randint(1, 100)
+        for x in range(0, post_to_pick):
+            submission = next(x for x in anime_submissions if not x.stickied)
+        anime = discord.Embed(
             title = f'``Title :``{submission.title}',
             color = discord.Color.green()
         )
-        meme.set_image(url=f'{submission.url}')
-        meme.add_field(name=':thumbsup: **Upvotes** :',value= f'{submission.ups}',inline=True)
-        meme.add_field(name=':thumbsdown: **Downvotes** :',value= f'{submission.downs}',inline=True)
-        await ctx.send(embed=meme)
+        anime.set_image(url=f'{submission.url}')
+        await ctx.send(embed=anime)
+
+    @commands.command()
+    @commands.is_nsfw()
+    async def foofies(self, ctx):
+        load = discord.Embed(
+            title = 'Loading...',
+            color = discord.Color.green()
+        )
+        await ctx.send(embed=load, delete_after=1)
+
+        reddit =  praw.Reddit(client_id = 'cKtdy4mx7fPopQ',
+                        client_secret = 'PuQBb-kfu6EPxayDZQYqydYq6v0',
+                        username = 'Connerwolf08',
+                        password = 'Sonu ghost@123',
+                        user_agent = 'Winter08 v.1.0'
+        )
+
+        anime_submissions = reddit.subreddit('Boobies').hot()
+        post_to_pick = random.randint(1, 100)
+        for x in range(0, post_to_pick):
+            submission = next(x for x in anime_submissions if not x.stickied)
+        anime = discord.Embed(
+            title = f'``Title :``{submission.title}',
+            color = discord.Color.green()
+        )
+        anime.set_image(url=f'{submission.url}')
+        await ctx.send(embed=anime)
 
     @commands.command()
     async def cat(self, ctx):

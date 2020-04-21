@@ -10,7 +10,11 @@ class Mod(commands.Cog):
     @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, member: discord.Member=None, *,reason=None):
         if not member:
-            await ctx.send('Please specify a memeber')
+            embed = discord.Embed(
+                title = 'Please specify a member to Kick.',
+                color = discord.Color.green()
+            )
+            await ctx.send(embed=embed)
             return
         await member.kick(reason=reason)
         embed = discord.Embed(
@@ -24,7 +28,11 @@ class Mod(commands.Cog):
     @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member=None, *,reason=None):
         if not member:
-            await ctx.send('Please specify a member')
+            embed = discord.Embed(
+                title = 'Please specify a member to Ban.',
+                color = discord.Color.green()
+            )
+            await ctx.send(embed=embed)
             return
         await member.ban(reason=reason)
         embed = discord.Embed(
@@ -58,7 +66,11 @@ class Mod(commands.Cog):
     async def mute(self, ctx, member: discord.Member=None,mute_minutes=0, *,reason=None):
         role = discord.utils.get(ctx.guild.roles, name='Muted')
         if not member:
-            await ctx.send('Please specify a member')
+            embed = discord.Embed(
+                title = 'Please specify a member to Mute.',
+                color = discord.Color.green()
+            )
+            await ctx.send(embed=embed)
             return
         
         await member.add_roles(role,reason=reason)
@@ -97,14 +109,13 @@ class Mod(commands.Cog):
 
     @commands.command(aliases=['c','clear'])
     @commands.has_permissions(manage_messages=True)
-    async def purge(self, ctx, amount: 10):
-        channel = ctx.channel
+    async def purge(self, ctx, amount=10):
+        await ctx.channel.purge(limit=amount)       
         embed = discord.Embed(
         title = f'``Logs :`` {ctx.author} deleted {amount} messages',
         color = discord.Color.green()
         )
-        await channel.purge(limit=amount)
-        await ctx.send(embed=embed,delete_after=2)  
+        await ctx.send(embed=embed,delete_after=3)  
 
 def setup(client):
     client.add_cog(Mod(client))

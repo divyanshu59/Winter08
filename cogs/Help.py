@@ -22,6 +22,8 @@ class Help(commands.Cog):
         dm_msg.add_field(name = 'Command -- `` "me(Your Info) or whois <user> (Info of Tagged User)"``: ', value = '>``Displays some info about the target user.``',inline = 'false')
         dm_msg.add_field(name = 'Command -- ``"random x <first num> + <second num>"``: ', value = '>``Itz a random number generator ``', inline = 'false')
         dm_msg.add_field(name = 'Command -- ``"meme"``: ', value = '>``Get Some Memes from Reddit``', inline = 'false')
+        dm_msg.add_field(name = 'Command -- ``"meme categories"``: ', value = '>``anime, minecraft``', inline = 'false')
+        dm_msg.add_field(name = 'Command -- ``"anime"``: ', value = '>``Get Some Anime from Reddit``', inline = 'false')
         dm_msg.add_field(name = 'Command -- ``"cat"``: ', value = '>``Get Some Cat images from Reddit``', inline = 'false')
         dm_msg.add_field(name = 'Command -- ``"dog"``: ', value = '>``Get Some Doggo images from Reddit``', inline = 'false')
         dm_msg.set_footer(text = f'{ctx.author}', icon_url = f'{ctx.author.avatar_url}')
@@ -36,6 +38,7 @@ class Help(commands.Cog):
         dm_msg2.add_field(name = 'Command -- ``"mute + <user> + reason"``: ', value = '``>Will Mute the person for given time in Minutes``', inline = 'false')
         dm_msg2.add_field(name = 'Command -- ``"unmute + <user> + reason"``: ', value = '``>Will Unmute the person for given time in Minutes``', inline = 'false')
         dm_msg2.add_field(name = 'Command -- ``"purge + <amount> ,default amount = 10"``: ', value = '``>Will purge specified number of messages from the guild``', inline = 'false')
+        dm_msg2.add_field(name = 'Command -- ``"setup enable <memberlog>"``: ', value = '``>It will create a channel for join/leave logs. [Disable = Delete channel (join-leave)]``', inline = 'false')
         dm_msg2.set_footer(text = f'{ctx.author}', icon_url = f'{ctx.author.avatar_url}')
 
         dm_msg3 = discord.Embed(
@@ -62,20 +65,26 @@ class Help(commands.Cog):
         await ctx.author.send(embed=dm_msg3)
         await ctx.author.send(embed=dm_msg4)
     
-    @commands.command()
+    @commands.command(aliases=['invite'])
     async def support(self, ctx):
         dm = discord.Embed(
             title = '```Bot :``` Here a link to my test/support server: ',
-            description = 'Link: https://discord.gg/yENwXPx',
             colour = discord.Color(0xff000)
             )
         guild = discord.Embed(
             title = f'```Bot :```Support arrived in Dms ``{ctx.message.author}``',
             colour = discord.Colour(0xff000)
             )
+
+        invite = discord.Embed(
+            title = 'https://discord.gg/TkDhPeR',
+            colour = discord.Colour(0xff000)
+            )
         
         await ctx.author.send(embed=dm)
+        await ctx.author.send(embed=invite)
         await ctx.send(embed=guild)
+        
 
     @commands.command()
     async def vote(self, ctx):

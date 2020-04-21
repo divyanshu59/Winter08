@@ -31,14 +31,6 @@ class Error(commands.Cog):
             
             await ctx.send(embed=e)
 
-        if isinstance(error, commands.UserInputError):
-            e = discord.Embed(
-                title = f'```Error :``` {error}',
-                color = discord.Color.green()
-            )
-            
-            await ctx.send(embed=e)
-
 
 def setup(client):
     client.add_cog(Error(client))

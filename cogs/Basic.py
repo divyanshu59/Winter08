@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 
 class Basic(commands.Cog):
-
     def __init__(self,client):
         self.client = client
 
@@ -28,6 +27,7 @@ class Basic(commands.Cog):
             ''',
             colour = discord.Colour.green()
             )
+        embed.set_image(url=f'{ctx.author.avatar_url}')
         embed.set_footer(
             text = f'{ctx.author}',
             icon_url = f'{ctx.author.avatar_url}'
@@ -38,7 +38,7 @@ class Basic(commands.Cog):
     @commands.command()
     async def whois(self, ctx, user: discord.Member):
         embed = discord.Embed(
-            title = f'About: ``{user}``',
+            title = f'About Them :',
             description = f'''
             ``User Name :`` **{user.name}**
             ``User ID :``**{user.id}**
@@ -48,6 +48,7 @@ class Basic(commands.Cog):
             ''',
             colour = discord.Colour.green()
             )
+        embed.set_image(url=f'{user.avatar_url}')
         embed.set_footer(
             text = f'{ctx.author}',
             icon_url = f'{ctx.author.avatar_url}'
