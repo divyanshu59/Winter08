@@ -1,20 +1,24 @@
-<h1>Winter08</h1>
-<br>
+<img src="https://i.pinimg.com/originals/bc/f9/2a/bcf92ae48de7a41fe59f8589a0406e80.gif" height="200" width="300">
 
-<h1>Introducion</h1>
-<p1>
-Winter Bot (A Basic utility Bot) This Bot is Suitable for small guild for basic moderation and a question (8ball cmd) which is a fun command | May add more fun commands in future.
+# ![Discord Bots](https://top.gg/api/widget/owner/586553956843388942.svg) ![Discord Bots](https://top.gg/api/widget/upvotes/586553956843388942.svg)
 
-Winter is developed as basic development project and a lot is to be implemented in the future.
+# Winter Discord Bot
+A Discord Bot under development 
 
-Under Development by a fresher Python Programmer.
+`Features:`
+* Work In Progress
 
-For information on bot's commands type "$help" and u will recieve a message from the bot including all the mentioned commands with the basic info and syntax.
-</p1>
-<br>
-<h1>Invite</h1>
-<h4>Use this link to invite Winter in your own discord server:</h4>
-https://discordapp.com/oauth2/authorize?client_id=586553956843388942&scope=bot&permissions=0
-<br>
-<h1>Credits</h1>
-<h4>By Conner Wolf 08 <h4>
+## Info
+
+- Languages: Python 
+- Version: v.1.0
+- Stage: Main [Outdated]
+- Author: Connerwolf08
+
+## Requirements
+
+- discord [discontinued]
+
+### Bot Invite 
+
+**Link :** [Click Here](https://discord.com/oauth2/authorize?client_id=586553956843388942&scope=bot&permissions=8)
